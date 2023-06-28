@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View_subcategory</title>
+    <style>
+        table ,th, td {
+            border: 1px solid black;
+            border-collaspe: collaspe;
+        }
+    </style>
+    <h2>Details</h2>
+</head>
+<body>
+<form action="/admin/view_subcategory" method="get">
+    <h3>category details</h3>
+    <table>
+              <tr>
+                <th>serial no</th>
+                <th>Category Name</th>
+                <th>Category Description:</th>
+                <th>action</th>
+              </tr>
+              {% for i in data %}
+              <tr>
+                 <td>{{ loop.index }}</td>
+                 <td>{{ i.category_name }}</td>
+                 <td>{{ i.category_description }}</td>
+
+
+                 <td>
+                      <a href="/admin/delete_category?categoryId={{ i.category_id }}">Delete</a>
+                      <a href="/admin/edit_category?categoryId={{ i.category_id }}">Edit</a>
+                 </td>
+              </tr>
+              {% endfor  %}
+    </table>
+<h3>sub category details</h3>
+    <table>
+              <tr>
+                <th>serial no</th>
+                <th>subcategory Name</th>
+                <th>subcategory Description:</th>
+                <th>action</th>
+              </tr>
+              {% for i in data1 %}
+              <tr>
+                 <td>{{ loop.index }}</td>
+                 <td>{{ i[0].subcategory_name }}</td>
+                 <td>{{ i[0].subcategory_description }}</td>
+
+
+                 <td>
+                      <a href="/admin/delete_subcategory?subcategoryId={{ i[0].subcategory_id }}">Delete</a>
+                      <a href="/admin/edit_subcategory?subcategoryId={{ i[0].subcategory_id}}">Edit</a>
+                 </td>
+              </tr>
+              {% endfor  %}
+    </table>
+</form>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View_category</title>
+    <style>
+        table ,th, td {
+            border: 1px solid black;
+            border-collaspe: collaspe;
+        }
+    </style>
+    <h2>Details</h2>
+</head>
+<body>
+<form action="/admin/view_category" method="get">
+
+    <table>
+              <tr>
+                <th>serial no</th>
+                <th>Category Name</th>
+                <th>Category Description:</th>
+                <th>action</th>
+              </tr>
+              {% for i in data %}
+              <tr>
+                 <td>{{ i.category_id }}</td>
+                 <td>{{ i.category_name }}</td>
+                 <td>{{ i.category_description }}</td>
+
+
+                 <td>
+                      <a href="/admin/delete_category?categoryId={{ i.category_id }}">Delete</a>
+                      <a href="/admin/edit_category?categoryId={{ i.category_id }}">Edit</a>
+                 </td>
+              </tr>
+              {% endfor  %}
+    </table>
+</form>
+</body>
+</html>

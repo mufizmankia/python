@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> edit_subcategory </title>
+</head>
+<h1> update </h1>
+<body>
+<form action="/admin/update_subcategory" method ="post">
+<label>select category:</label>
+    <select name="subcategoryCategoryId">
+            {% for category in data %}
+                {% if data1[0].subcategory_category_id==category.category_id %}
+                    <option selected value={{ category.category_id }}>{{ category.category_name }}</option>
+                {% endif %}
+            {% endfor %}
+            {% for category in data %}
+                <option value={{ category.category_id }}>{{ category.category_name }}</option>
+            {% endfor %}
+    </select><br>
+    <input type="hidden" name="subCategoryId" value={{ data1[0].subcategory_id }}>
+    <label>Subcategory name:</label>
+    <input type="text" name="subCategoryName" value={{ data1[0].subcategory_name }} ><br>
+    <label>Subcategory Description:</label>
+    <input type="text" name="subCategoryDescription" value={{ data1[0].subcategory_description }}><br>
+    <input type="submit" value="update">
+
+ </form>
+</body>
+</html>

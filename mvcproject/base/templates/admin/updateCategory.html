@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>update Category</title>
+</head>
+<h1>update category</h1>
+<h2>Category Details</h2>
+<body>
+ <form action="/admin/update_category" method ="post">
+{% for i in data %}
+    <input type="hidden" name="categoryId" value="{{ i.category_id }}">
+    <label>Category Name:</label>
+    <input type="text" name="categoryName" value="{{ i.category_name }}"  ><br>
+
+    <label> Category Description:</label>
+    <textarea rows="5" cols="10" name="categoryDescription">{{ i.category_description }} </textarea><br>
+    <input type="submit" value="update" >
+{% endfor %}
+ </form>
+</body>
+</html>
